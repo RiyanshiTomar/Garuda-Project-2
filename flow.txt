@@ -1,0 +1,104 @@
+| Mental model + what we're building |
+| MVC pattern explained              | 
+| Project folder structure           | 
+| server.js + db.js + .env setup     | 
+| npm packages walkthrough           |
+| Request lifecycle diagram          |
+
+
+Walk through the core features list so students know the full scope:
+
+• User Registration & Login — with hashed passwords and JWT tokens
+• Secure Authentication — every protected route verifies your token
+• Wallet System — each user has a balance they can top up
+• Send Money — transfer funds between users atomically (all-or-nothing)
+• Transaction History — see all past credits and debits
+• Email Notifications — nodemailer sends emails on key events
+• Input Validation & Error Handling — because bad data breaks production
+
+
+I hope this is clear - What Are We Building?
+
+
+
+API Design First - we will first design our api first then code 
+
+
+Method + Route	Description
+
+
+POST /api/auth/register	      Public — Create a new user account
+POST /api/auth/login	      Public — Log in and receive a JWT cookie
+POST /api/auth/logout	      Public — Clear the JWT cookie
+GET  /api/auth/me	      Protected — Get your own profile
+POST /api/transaction/send    Protected — Send money to another user
+GET  /api/transaction/history Protected — Get your transaction history
+POST /api/wallet/topup	      Protected — Add money to your wallet
+
+
+We will build every single one of these just (wait learn build)
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+Request Lifecycle Diagram
+
+
+refer paint here
+
+
+
+
+what is mvc now 
+
+MVC (Model View Controller) is a software architecture pattern that separates an application into three main parts:
+
+Model → handles data and database operations
+View → handles the user interface (UI)
+Controller → handles requests and controls the flow between View and Model
+
+
+
+Lets make the folder sturcture
+make that with the live code 
+
+
+
+
+npm packages 
+
+  npm init -y
+  npm install express mongoose dotenv cookie-parser bcrypt jsonwebtoken nodemailer
+  npm install -D nodemon
+
+
+
+
+ code time now 
+ server.js Live
+ db.js live code 
+ .env file
+
+  
+
+
+
+  commands
+
+  mkdir src
+  mkdir src/config
+  mkdir src/models
+  mkdir src/controllers
+  mkdir src/routes
+  mkdir src/middleware
+  touch src/config/db.js
+  touch src/controllers/auth.controller.js
+  touch src/controllers/transaction.controller.js
+  touch src/controllers/wallet.controller.js
+  touch src/routes/auth.routes.js
+  touch src/routes/transaction.routes.js
+  touch src/routes/wallet.routes.js
+  touch src/middleware/auth.middleware.js
+  touch src/models/user.model.js
+  touch src/models/transaction.model.js
+  touch .env
